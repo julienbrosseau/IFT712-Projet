@@ -35,3 +35,7 @@ def get_info_data(data):
 def get_describe_data(data):
     # Retroune la distribution des variables
     return data.describe()
+
+def get_null_data(data):
+    # Retourne le nombre de variable null
+    return data.isnull().sum()

@@ -24,6 +24,9 @@ columns_test  = op.get_columns_data(data_test)
 # Affichage de la distibution
 describe_train = op.get_describe_data(data_train)
 describe_test  = op.get_describe_data(data_test)
-print(describe_train)
+#print(describe_train)
 
-
+# Affichage du nombre de variables null
+null_train = op.get_null_data(data_train)
+null_test  = op.get_null_data(data_test)
+print(null_train)
