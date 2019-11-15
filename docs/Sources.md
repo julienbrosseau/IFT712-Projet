@@ -1,8 +1,5 @@
 # Ensemble des sources du projet
 
-## GitHub :
-Lien vers le github du projet [GitHub](https://github.com/julienbrosseau/IFT712-Projet)
-
 ## Architecture :
 Lien vers le template du projet [CookieCutter](https://github.com/cookiecutter/cookiecutter)
 
