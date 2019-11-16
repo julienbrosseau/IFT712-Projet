@@ -33,9 +33,11 @@ rl.fit(x_test, t_test)
 predic_test = rl.predict(x_test)
 
 # Affichage des donnees en fonction de leur classification
+# Affichage brut pour l'entrainement et les tests
 print("Matrice Confusion - Train", confusion_matrix(predic_train, t_train))
 print("Matrice Confusion - Test", confusion_matrix(predic_test, t_test))
 
+# Affichage a l'aide de matplotlib des tests
 sns.heatmap(confusion_matrix(t_test, predic_test),annot=True,lw =2,cbar=False)
 
 plt.title("Matrice de confusion")

@@ -3,9 +3,10 @@
 # Source du module "LogisticRegression"
 # https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html
 
-from sklearn.linear_model import LogisticRegression
+from sklearn.linear_model import LogisticRegressionCV
 
-logistic_regression = LogisticRegression(
+logistic_regression = LogisticRegressionCV(
+    cv           = 5,
     random_state = 0,
     solver       = 'lbfgs',
     multi_class  = 'multinomial',
