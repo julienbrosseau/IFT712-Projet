@@ -25,8 +25,9 @@ def traitement(data):
     # Classification par tranche d'ages
     data.loc[ data['Age'] <= 11                      , 'Age'] = 0,  # Enfants
     data.loc[(data['Age'] > 11) & (data['Age'] <= 17), 'Age'] = 1,  # Adolescents
-    data.loc[(data['Age'] > 17) & (data['Age'] <= 49), 'Age'] = 2,  # Adultes
-    data.loc[ data['Age'] > 49                       , 'Age'] = 3   # Seniors
+    data.loc[(data['Age'] > 17) & (data['Age'] <= 39), 'Age'] = 2,  # Jeunes
+    data.loc[(data['Age'] > 39) & (data['Age'] <= 59), 'Age'] = 3,  # Adultes
+    data.loc[ data['Age'] > 59                       , 'Age'] = 4   # Seniors
     # ------------------------------------------------------------------------------
 
     # Completer les donnees manquantes pour les ports d'embarqations ---------------
@@ -40,6 +41,12 @@ def traitement(data):
     # Completer les donnees manquantes pour le prix du billet ----------------------
     # Assigner le tarif le plus frequent (apres analyse des donnees) pour les donnees manquantes
     data.loc[data.Fare.isnull(), 'Fare'] = 7.895800
+
+    # Classification par tranche de prix
+    data.loc[ data['Fare'] <= 17                        , 'Fare'] = 0,  # Pauvres
+    data.loc[(data['Fare'] > 17) & (data['Fare'] <= 30) , 'Fare'] = 1,  # Modestes
+    data.loc[(data['Fare'] > 30) & (data['Fare'] <= 100), 'Fare'] = 2,  # Aises
+    data.loc[ data['Fare'] > 100                        , 'Fare'] = 3   # Riches
     # ------------------------------------------------------------------------------
 
     return data
