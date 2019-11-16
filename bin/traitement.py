@@ -21,6 +21,12 @@ def traitement(data):
 
     # Remplacer les "float" par des "int" pour les ages
     data['Age'] = data['Age'].astype(int)
+
+    # Classification par tranche d'ages
+    data.loc[ data['Age'] <= 11                      , 'Age'] = 0,  # Enfants
+    data.loc[(data['Age'] > 11) & (data['Age'] <= 17), 'Age'] = 1,  # Adolescents
+    data.loc[(data['Age'] > 17) & (data['Age'] <= 49), 'Age'] = 2,  # Adultes
+    data.loc[ data['Age'] > 49                       , 'Age'] = 3   # Seniors
     # ------------------------------------------------------------------------------
 
     # Completer les donnees manquantes pour les ports d'embarqations ---------------
