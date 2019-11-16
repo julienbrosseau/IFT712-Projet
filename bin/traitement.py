@@ -6,8 +6,7 @@ def traitement(data):
     # ------------------------------------------------------------------------------
 
     # Remplacer les "string" par des "int" pour le sexe ----------------------------
-    data.loc[data['Sex']=='male','Sex'] = 1
-    data.loc[data['Sex']=='female','Sex'] = 0
+    data['Sex'] = data['Sex'].map({'male':1, 'female':0})
     # ------------------------------------------------------------------------------
 
     # Completer les donnees manquantes pour les ages -------------------------------
