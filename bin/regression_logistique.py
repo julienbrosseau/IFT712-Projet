@@ -1,7 +1,7 @@
 # Classification par regression logistique
 
-# Source du module "LogisticRegression"
-# https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html
+# Source du module "LogisticRegressionCV"
+# https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegressionCV.html
 
 from sklearn.linear_model import LogisticRegressionCV
 
