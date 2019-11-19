@@ -1,61 +1,23 @@
-# -*- coding: utf-8 -*-
-"""   
-# Godart Arnaud 19 156 869
-"""
+# Classification par perceptron multi-couches
 
-import ouverture as op
-import traitement as tt
-import pandas as pd
-import numpy as np
+# Source du module "MLPClassifier"
+# https://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html
 
-import seaborn as sns
-import matplotlib.pyplot as plt
-
-from sklearn.datasets import load_digits
-from sklearn.linear_model import Perceptron
 from sklearn.neural_network import MLPClassifier
-from sklearn.metrics import log_loss
-from sklearn.metrics import confusion_matrix
 
-# Récupération des jeux de données
-train_data = pd.read_csv("data/train.csv")
-test_data = pd.read_csv("data/test.csv")
-ref_data = pd.read_csv("data/gender_submission.csv")
-dataset = [train_data, test_data]
+mlp = MLPClassifier(
+        hidden_layer_sizes=(25,13,3),
+        max_iter=1000
+        )
 
-# Traitement des jeux de données
-train_data=tt.traitement(train_data)
-test_data=tt.traitement(test_data)
+def fit(x_train, t_train):
+    # Retroune l'entrainement du modele par rapport aux donnees 
+    return mlp.fit(x_train, t_train)
 
-# Identification des jeu de données
-X_train = train_data.drop(["Survived"], axis=1)
-Y_train = train_data["Survived"]
-X_test  = test_data
-Y_test = ref_data["Survived"]
-print(X_train.shape, Y_train.shape, X_test.shape, Y_test.shape) # Taille des jeux de données
+def predict(x_train):
+    # Retourne la prediction des donnees
+    return mlp.predict(x_train)
 
-# Perceptron mutli-couches
-mlp = MLPClassifier(hidden_layer_sizes=(25,13,3), max_iter=900)
-print(mlp.fit(X_train, Y_train))
-
-
-train_acc_mlp = round(mlp.score(X_train, Y_train) * 100, 2)
-print(train_acc_mlp)
-
-# Test d'évaluation de la précision
-Y_pred_mlp = mlp.predict(X_test)
-print(round(np.sum(np.equal(Y_pred_mlp, Y_test))/len(Y_test) * 100, 2))
-
-# Log perte (Log loss)
-print(log_loss(Y_pred_mlp, Y_test))
-
-# Matrice de confusion
-print(confusion_matrix(Y_pred_mlp, Y_test, labels=[1,0]))
-sns.heatmap(confusion_matrix(Y_pred_mlp, Y_test), annot=True,lw =2,cbar=False)
-plt.ylabel("valeurs réelles")
-plt.xlabel("Valeurs prédites")
-plt.title("matrice de confusion")
-plt.show()
-
-
-
+def score(x_train, t_train):
+    # Retourne la score moyen des donnees en fonction de leur classe
+    return mlp.score(x_train, t_train)
