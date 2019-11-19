@@ -1,8 +1,8 @@
-# Test du fichier "regression_logistique.py"
+# Test du fichier "logistic_regression.py"
 
-import bin.ouverture as op
-import bin.traitement as tr
-import bin.regression_logistique as rl
+import bin.data_opening as op
+import bin.treatment as tr
+import bin.logistic_regression as rl
 
 import seaborn as sns
 import matplotlib.pyplot as plt

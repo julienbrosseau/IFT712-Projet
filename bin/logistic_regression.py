@@ -27,3 +27,4 @@ class LogisticRegression():
     def score(self, x_train, t_train):
         # Retourne la score moyen des donnees en fonction de leur classe
         return self.logistic_regression.score(x_train, t_train)
+    
