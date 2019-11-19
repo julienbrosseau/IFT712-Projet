@@ -1,7 +1,7 @@
 # Test du fichier "ridge.py"
 
-import bin.ouverture as op
-import bin.traitement as tr
+import bin.data_opening as op
+import bin.treatment as tr
 import bin.ridge as rd
 
 import seaborn as sns
