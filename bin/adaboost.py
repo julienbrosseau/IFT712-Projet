@@ -9,26 +9,29 @@
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.model_selection import GridSearchCV
 
+import matplotlib.pyplot as plt
+import numpy as np
+
 class AdaBoost():
     def __init__(self):
         # Initialisation du module
-        grid_parameters = {'n_estimators': range(50, 60, 1)}
+        grid_parameters = {'n_estimators': range(1, 20, 1)}
 
         self.adaboost = GridSearchCV(AdaBoostClassifier(
             random_state = 0
-        ), grid_parameters, cv=20, iid=False) 
+        ), grid_parameters, cv=15, iid=False) 
     
-    def fit(self, x_train, t_train):
+    def fit(self, x_tab, t_tab):
         # Retroune l entrainement du modele par rapport aux donnees 
-        return self.adaboost.fit(x_train, t_train)
+        return self.adaboost.fit(x_tab, t_tab)
 
     def predict(self, data):
         # Retourne la prediction des donnees
         return self.adaboost.predict(data)
 
-    def score(self, x_train, t_train):
+    def score(self, x_tab, t_tab):
         # Retourne la score moyen des donnees en fonction de leur classe
-        return self.adaboost.score(x_train, t_train)
+        return self.adaboost.score(x_tab, t_tab)
     
     def get_best_param(self):
         # Retroune le meilleur hyperparametre

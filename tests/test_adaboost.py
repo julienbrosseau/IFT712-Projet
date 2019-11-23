@@ -1,8 +1,8 @@
-# Test du fichier "ridge.py"
+# Test du fichier "adaboost.py"
 
 import bin.data_opening as op
 import bin.treatment as tr
-import bin.ridge as rd
+import bin.adaboost as ad
 
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -27,27 +27,26 @@ t_train = data_train["Survived"]
 x_test  = data_test
 t_test  = data_ref["Survived"]
 
-# Classification par ridge
-ridge = rd.Ridge()
+# Classification par AdaBoost
+adaboost = ad.AdaBoost()
 
 # Entrainement des donnees
-ridge.fit(x_train, t_train)
-predic_train = ridge.predict(x_train)
+adaboost.fit(x_train, t_train)
+predic_train = adaboost.predict(x_train)
 
-# Test de l'entrainement du modele
-ridge.fit(x_test, t_test)
-predic_test = ridge.predict(x_test)
+# Predication sur les donnees de tests
+predic_test = adaboost.predict(x_test)
 
 # Affichage des donnees en fonction de leur classification
 # Affichage erreurs pour l'entrainement et les tests
-print("Erreur d'entrainement :", (1 - ridge.score(x_train, t_train)) * 100, "%")
-print("Erreur de test :", (1 - ridge.score(x_test, t_test)) * 100, "%")
+print("Erreur d'entrainement :", (1 - adaboost.score(x_train, t_train)) * 100, "%")
+print("Erreur de test :", (1 - adaboost.score(x_test, t_test)) * 100, "%")
 
-print("Meilleur hyperparametre :", ridge.get_best_param())
+print("Meilleur hyperparametre :", adaboost.get_best_param())
 
 # Affichage matrice de confusion
-sns.heatmap(confusion_matrix(t_train, predic_train),annot=True,lw =2,cbar=False)
-#sns.heatmap(confusion_matrix(t_test, predic_test),annot=True,lw =2,cbar=False)
+#sns.heatmap(confusion_matrix(t_train, predic_train), annot=True, lw=2, cbar=False)
+sns.heatmap(confusion_matrix(t_test, predic_test), annot=True, lw=2, cbar=False)
 
 plt.title("Matrice de confusion")
 plt.ylabel("Valeurs réelles")
