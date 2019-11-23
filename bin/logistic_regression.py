@@ -4,13 +4,15 @@
 # https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegressionCV.html
 
 from sklearn.linear_model import LogisticRegressionCV
+import numpy as np
 
 class LogisticRegression():
 
     def __init__(self):
         # Initalisation du modele
         self.logistic_regression = LogisticRegressionCV(
-            cv           = 5,
+            Cs           = np.arange(3, 4, 1e-3),
+            cv           = 15,
             random_state = 0,
             solver       = 'lbfgs',
             multi_class  = 'multinomial',
@@ -27,4 +29,8 @@ class LogisticRegression():
     def score(self, x_train, t_train):
         # Retourne la score moyen des donnees en fonction de leur classe
         return self.logistic_regression.score(x_train, t_train)
+    
+    def get_best_param(self):
+        # Retroune le meilleur hyperparametre
+        return self.logistic_regression.C_
     

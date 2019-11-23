@@ -34,14 +34,15 @@ logistic_regression = rl.LogisticRegression()
 logistic_regression.fit(x_train, t_train)
 predic_train = logistic_regression.predict(x_train)
 
-# Test de l'entrainement du modele
-logistic_regression.fit(x_test, t_test)
+# Prediction des donnees de tests
 predic_test = logistic_regression.predict(x_test)
 
 # Affichage des donnees en fonction de leur classification
 # Affichage erreurs pour l'entrainement et les tests
 print("Erreur d'entrainement :", (1 - logistic_regression.score(x_train, t_train)) * 100, "%")
 print("Erreur de test :", (1 - logistic_regression.score(x_test, t_test)) * 100, "%")
+
+print("Meilleur hyperparametre :", logistic_regression.get_best_param())
 
 # Affichage matrice de confusion
 #sns.heatmap(confusion_matrix(t_trainn predic_train), annot=True, lw=2, cbar=False)
