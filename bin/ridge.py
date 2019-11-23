@@ -10,8 +10,8 @@ class Ridge():
     def __init__(self):
         # Initalisation du modele
         self.ridge = RidgeClassifierCV(
-            alphas   = np.array(np.arange(1e-6, 1e-3, 1e-4)),
-            cv       = 5
+            alphas = np.array(np.arange(0, 1e-3, 0.5e-5)),
+            cv     = 15
         )
 
     def fit(self, x_train, t_train):
@@ -27,4 +27,5 @@ class Ridge():
         return self.ridge.score(x_train, t_train)
 
     def get_best_param(self):
+        # Retourne le meilleur hyperparametre
         return self.ridge.alpha_

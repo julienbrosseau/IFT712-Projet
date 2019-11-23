@@ -34,8 +34,7 @@ ridge = rd.Ridge()
 ridge.fit(x_train, t_train)
 predic_train = ridge.predict(x_train)
 
-# Test de l'entrainement du modele
-ridge.fit(x_test, t_test)
+# Prediction des donnees de tests
 predic_test = ridge.predict(x_test)
 
 # Affichage des donnees en fonction de leur classification
@@ -46,8 +45,8 @@ print("Erreur de test :", (1 - ridge.score(x_test, t_test)) * 100, "%")
 print("Meilleur hyperparametre :", ridge.get_best_param())
 
 # Affichage matrice de confusion
-sns.heatmap(confusion_matrix(t_train, predic_train),annot=True,lw =2,cbar=False)
-#sns.heatmap(confusion_matrix(t_test, predic_test),annot=True,lw =2,cbar=False)
+#sns.heatmap(confusion_matrix(t_train, predic_train),annot=True,lw =2,cbar=False)
+sns.heatmap(confusion_matrix(t_test, predic_test),annot=True,lw =2,cbar=False)
 
 plt.title("Matrice de confusion")
 plt.ylabel("Valeurs réelles")
