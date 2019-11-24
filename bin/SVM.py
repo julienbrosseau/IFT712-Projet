@@ -6,7 +6,7 @@
 from sklearn import svm
 
 
-svm.SVC(C=1.0,
+clf=svm.SVC(C=1.0,
         cache_size=200,
         class_weight=None,
         coef0=0.0,
@@ -18,10 +18,11 @@ svm.SVC(C=1.0,
         random_state=None,
         shrinking=True,
         tol=0.001,
-        verbose=False
+        verbose=False,
+        gamma='scale', #verif!
+        decision_function_shape='ovo' #verif!
         )
 
-clf = svm.SVC(gamma='scale', decision_function_shape='ovo') #Vérif!
 
 def fit(x_train, y_train):
      # Retroune l'entrainement du modele par rapport aux donnees
