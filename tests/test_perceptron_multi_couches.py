@@ -26,7 +26,6 @@ X_test  = data_test
 Y_test = data_ref["Survived"]
 
 # Classification par perceptron mutli-couches
-print(mlp.fit(X_train, Y_train))
 # Entrainement des donnees
 train_acc_mlp = round(mlp.score(X_train, Y_train) * 100, 2)
 print(train_acc_mlp)
