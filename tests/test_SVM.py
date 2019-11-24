@@ -1,8 +1,3 @@
-# -*- coding: utf-8 -*-
-"""   
-# Godart Arnaud 19 156 869
-"""
-
 import ouverture as op
 import traitement as tt
 import pandas as pd
