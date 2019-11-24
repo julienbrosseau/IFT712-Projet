@@ -16,8 +16,8 @@ data_test  = op.get_testing_data()
 data_ref   = op.get_referencing_data()
 
 # Traitement des donnees
-data_train = tr.traitement(data_train)
-data_test  = tr.traitement(data_test)
+data_train = tr.treatment(data_train)
+data_test  = tr.treatment(data_test)
 
 # Affiliation des donnees
 X_train = data_train.drop(["Survived"], axis=1)
