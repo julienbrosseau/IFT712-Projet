@@ -6,7 +6,7 @@
 from sklearn import svm
 
 
-clf=svm.SVC(C=1.0,
+svm=svm.SVC(C=1.0,
         cache_size=200,
         class_weight=None,
         coef0=0.0,
@@ -19,19 +19,19 @@ clf=svm.SVC(C=1.0,
         shrinking=True,
         tol=0.001,
         verbose=False,
-        gamma='scale', #verif!
-        decision_function_shape='ovo' #verif!
+        gamma='scale', #verif! cv?
+        decision_function_shape='ovo' #verif! cv?
         )
 
 
 def fit(x_train, y_train):
      # Retroune l'entrainement du modele par rapport aux donnees
-     return clf.fit(x_train, y_train)
+     return svm.fit(x_train, y_train)
     
 def predict(x_train):
     # Retourne la prediction des donnees
-    return clf.predict(x_train)
+    return svm.predict(x_train)
 
 def support_vectors(x_train):
     # Retourne les vecteurs de support
-    return clf.support_vectors_(x_train)
+    return svm.support_vectors_(x_train)
