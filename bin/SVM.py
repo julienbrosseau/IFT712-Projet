@@ -21,3 +21,16 @@ svm.SVC(C=1.0,
         verbose=False
         )
 
+clf = svm.SVC(gamma='scale', decision_function_shape='ovo') #Vérif!
+
+def fit(x_train, y_train):
+     # Retroune l'entrainement du modele par rapport aux donnees
+     return clf.fit(x_train, y_train)
+    
+def predict(x_train):
+    # Retourne la prediction des donnees
+    return clf.predict(x_train)
+
+def support_vectors(x_train):
+    # Retourne les vecteurs de support
+    return clf.support_vectors_(x_train)
