@@ -25,10 +25,9 @@ Y_train = data_train["Survived"]
 X_test  = data_test
 Y_test = data_ref["Survived"]
 
-print(X_train.shape, Y_train.shape, X_test.shape, Y_test.shape) # Taille des jeux de données
-
 # Classification par perceptron mutli-couches
 print(mlp.fit(X_train, Y_train))
+# Entrainement des donnees
 train_acc_mlp = round(mlp.score(X_train, Y_train) * 100, 2)
 print(train_acc_mlp)
 
