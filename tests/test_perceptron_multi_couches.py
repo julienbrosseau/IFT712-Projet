@@ -1,8 +1,8 @@
 # Test du fichier "perceptron_multi_couches.py"
 
 import numpy as np
-import bin.ouverture as op
-import bin.traitement as tr
+import bin.data_opening as op
+import bin.treatment as tr
 import bin.perceptron_multi_couches as mlp
 
 import seaborn as sns
