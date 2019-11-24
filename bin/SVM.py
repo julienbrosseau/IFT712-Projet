@@ -25,7 +25,7 @@ svm=svm.SVC(C=1.0,
 
 
 def fit(x_train, y_train):
-     # Retroune l'entrainement du modele par rapport aux donnees
+     # Retourne l'entrainement du modele par rapport aux donnees
      return svm.fit(x_train, y_train)
     
 def predict(x_train):
