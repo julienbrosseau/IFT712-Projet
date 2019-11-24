@@ -1,38 +1,32 @@
-import ouverture as op
-import traitement as tt
-import pandas as pd
 import numpy as np
+import bin.data_opening as op
+import bin.treatment as tr
+import bin.SVM as svc
 
 import seaborn as sns
 import matplotlib.pyplot as plt
-
-from sklearn.datasets import load_digits
-from sklearn.linear_model import Perceptron
-from sklearn.neural_network import MLPClassifier
-from sklearn.metrics import log_loss
 from sklearn.metrics import confusion_matrix
 from sklearn.svm import SVC, LinearSVC
 
 
-# Récupération des jeux de données
-train_data = pd.read_csv("data/train.csv")
-test_data = pd.read_csv("data/test.csv")
-ref_data = pd.read_csv("data/gender_submission.csv")
-dataset = [train_data, test_data]
+# Récupération des données
+data_train = op.get_training_data()
+data_test  = op.get_testing_data()
+data_ref   = op.get_referencing_data()
 
-# Traitement des jeux de données
-train_data=tt.traitement(train_data)
-test_data=tt.traitement(test_data)
+# Traitement des donnees
+data_train = tr.traitement(data_train)
+data_test  = tr.traitement(data_test)
+
 
 # Identification des jeu de données
-X_train = train_data.drop(["Survived"], axis=1)
-Y_train = train_data["Survived"]
-X_test  = test_data
-Y_test = ref_data["Survived"]
+X_train = data_train.drop(["Survived"], axis=1)
+Y_train = data_train["Survived"]
+X_test  = data_test
+Y_test = data_ref["Survived"]
 print(X_train.shape, Y_train.shape, X_test.shape, Y_test.shape) # Taille des jeux de données
 
 # Machine à vecteurs de support
-svc = SVC()
 print(svc.fit(X_train, Y_train))
 
 #Evaluation de l'entrainement
@@ -46,8 +40,6 @@ print(round(np.sum(np.equal(Y_pred_svc, Y_test))/len(Y_test) * 100, 2))
 
 # Matrice de confusion
 print(confusion_matrix(Y_pred_svc, Y_test, labels=[0, 1]))
-import seaborn as sns
-import matplotlib.pyplot as plt
 sns.heatmap(confusion_matrix(Y_test, Y_pred_svc),annot=True,lw =2,cbar=False)
 plt.ylabel("True Values")
 plt.xlabel("Predicted Values")
