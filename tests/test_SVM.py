@@ -1,4 +1,5 @@
-import numpy as np
+# Test du fichier "svm.py"
+
 import bin.data_opening as op
 import bin.treatment as tr
 import bin.SVM as svm
@@ -9,38 +10,44 @@ from sklearn.metrics import confusion_matrix
 
 
 # Récupération des données
-data_train = op.get_training_data()
-data_test  = op.get_testing_data()
-data_ref   = op.get_referencing_data()
+opening = op.DataOpening()
+data_train = opening.get_training_data()
+data_test  = opening.get_testing_data()
+data_ref   = opening.get_referencing_data()
 
 # Traitement des donnees
-data_train = tr.traitement(data_train)
-data_test  = tr.traitement(data_test)
+treatment = tr.Treatment()
+data_train = treatment.data_treatment(data_train)
+data_test  = treatment.data_treatment(data_test)
 
 
-# Identification des jeu de données
-X_train = data_train.drop(["Survived"], axis=1)
-Y_train = data_train["Survived"]
-X_test  = data_test
-Y_test = data_ref["Survived"]
-print(X_train.shape, Y_train.shape, X_test.shape, Y_test.shape) # Taille des jeux de données
+# Affiliation des données
+x_train = data_train.drop(["Survived"], axis=1)
+t_train = data_train["Survived"]
+x_test  = data_test
+t_test = data_ref["Survived"]
 
-# Machine à vecteurs de support
-print(svm.fit(X_train, Y_train))
+# Classification par machine à vecteurs de support
+svm = svm.SVM()
 
-#Evaluation de l'entrainement
-train_acc_svm = round(svm.score(X_train, Y_train) * 100, 2)
-print(train_acc_svm)
+# Entrainement des donnees
+svm.fit(x_train, t_train)
+predic_train = svm.predict(x_train)
 
-Y_pred_svm = svm.predict(X_test)
+#Prediction sur les donnees de test
+predic_test = svm.predict(x_test)
 
-# Test d'évaluation de la précision
-print(round(np.sum(np.equal(Y_pred_svc, Y_test))/len(Y_test) * 100, 2))
+# Affichage des donnees en fonction de leur classification
+# Affichage erreurs pour l'entrainement et les tests
+print("Erreur d'entrainment : ", (1 - svm.score(x_train, t_train)) * 100, "%")
+print("Erreur de test : ", (1 - svm.score(x_test, t_test)) * 100, "%")
+print(svm.get_best_param())
 
-# Matrice de confusion
-print(confusion_matrix(Y_pred_svc, Y_test, labels=[0, 1]))
-sns.heatmap(confusion_matrix(Y_test, Y_pred_svm),annot=True,lw =2,cbar=False)
-plt.ylabel("True Values")
-plt.xlabel("Predicted Values")
-plt.title("CONFUSSION MATRIX VISUALIZATION")
+# Affichage matrice de confusion
+sns.heatmap(confusion_matrix(t_test, predic_test), annot=True, lw =2, cbar=False)
+
+plt.title("Matrice de confusion")
+plt.ylabel("Valeurs réelles")
+plt.xlabel("Valeurs prédis")
+
 plt.show()
