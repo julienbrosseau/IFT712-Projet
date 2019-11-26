@@ -2,7 +2,7 @@
 
 import bin.data_opening as op
 import bin.treatment as tr
-import bin.random_forest as rf
+import bin.Random_forest as rf
 
 import seaborn as sns
 import matplotlib.pyplot as plt
