@@ -1,3 +1,3 @@
 # Fichier main du projet
 
-import tests.test_random_forest.py
+import tests.test_random_forest

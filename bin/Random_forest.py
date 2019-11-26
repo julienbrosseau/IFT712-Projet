@@ -9,6 +9,8 @@
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import GridSearchCV
 
+import matplotlib.pyplot as plt
+import numpy as np
 
 class randomForest():
     def __init__(self):
@@ -23,17 +25,17 @@ class randomForest():
 
     def fit(self, x_train, y_train):
         # Retourne l'entrainement du modele par rapport aux donnees
-        return self.fit(x_train, y_train)
+        return self.randomForest.fit(x_train, y_train)
         
     def predict(self, x_train):
         # Retourne la prediction des donnees
-        return self.predict(x_train)
+        return self.randomForest.predict(x_train)
     
     def score(self, x_train, y_train):
         # Retourne les vecteurs de support
-        return self.randomForest(x_train, y_train)
+        return self.randomForest.score(x_train, y_train)
     
     def get_best_param(self):
         # Retourne le meilleur hyperparametre
-        return self.get_params()
+        return self.randomForest.best_params_
     
