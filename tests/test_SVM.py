@@ -2,7 +2,7 @@
 
 import bin.data_opening as op
 import bin.treatment as tr
-import bin.SVM as svm
+import bin.svm as svm
 
 import seaborn as sns
 import matplotlib.pyplot as plt

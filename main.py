@@ -1,4 +1,4 @@
 # Fichier main du projet
 
-import tests.test_SVM
+import tests.test_svm
 
