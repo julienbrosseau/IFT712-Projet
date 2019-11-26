@@ -15,8 +15,8 @@ class randomForest():
         #Initialisation du module
         grid_parameters = {'n_estimators': range(1, 20, 1)}
 
-        self.randomForest = GridSearchCV(randomForestClassifier(
-            n_estimators=100, 
+        self.randomForest = GridSearchCV(RandomForestClassifier(
+            n_estimators=30, 
             max_depth=2,
             random_state=0
         ), grid_parameters, cv=15, iid=False) 
