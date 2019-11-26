@@ -1,7 +1,7 @@
 # Classification par SVM (machines à support de vecteurs)
 
 # Source du module "SVM"
-https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html
+# https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html
 
 # Source du module "GridSearchCV"
 # https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html
