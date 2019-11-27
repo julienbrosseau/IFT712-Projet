@@ -6,7 +6,7 @@
 from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import GridSearchCV
 
-class mlp():
+class Mlp():
     def __init__(self):
         #Initialisation du module
         grid_parameters = {'n_estimators': range(1, 20, 1)}
