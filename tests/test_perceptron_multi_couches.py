@@ -20,8 +20,8 @@ data_train = treatment.data_treatment(data_train)
 data_test  = treatment.data_treatment(data_test)
 
 # Affiliation des donnees
-x_train = data_train.drop(["Survived"], axis=1)
 t_train = data_train["Survived"]
+x_train = data_train.drop(["Survived"], axis=1)
 x_test  = data_test
 t_test = data_ref["Survived"]
 
@@ -30,6 +30,7 @@ mlp = mlp.Mlp()
 
 # Entrainement des donnees
 mlp.fit(x_train, t_train)
+
 predict_train = mlp.predict(x_train)
 
 # Prediction sur les donnees de tests
@@ -40,9 +41,7 @@ predic_test = mlp.predict(x_train)
 print("Erreur d'entrainement : ", (1 - mlp.score(x_train, t_train)) * 100, "%")
 print("Erreur de test : ", (1 - mlp.score(x_test, t_test)) * 100, "%")
 
-
-print("Meilleur hyperparametre : ", mlp.get_best_param())
-
+#print("Meilleur hyperparametre : ", mlp.get_best_param())
 
 # Affichage matrice de confusion
 # Matrice de confusion
