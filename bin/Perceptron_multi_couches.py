@@ -17,7 +17,7 @@ class mlp():
         ), grid_parameters, cv=15, iid=False) 
 
     def fit(self, x_train, t_train):
-        # Retroune l'entrainement du modele par rapport aux donnees 
+        # Retourne l'entrainement du modele par rapport aux donnees 
         return self.mlp.fit(x_train, t_train)
     
     def predict(self, x_train):
