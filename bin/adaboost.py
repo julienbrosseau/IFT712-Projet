@@ -8,14 +8,12 @@
 
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.model_selection import GridSearchCV
-
-import matplotlib.pyplot as plt
 import numpy as np
 
 class AdaBoost():
     def __init__(self):
         # Initialisation du module
-        grid_parameters = {'n_estimators': range(1, 20, 1)}
+        grid_parameters = {'n_estimators': range(5, 15, 1), 'learning_rate': np.arange(0.8, 1.8, 0.1)}
 
         self.adaboost = GridSearchCV(AdaBoostClassifier(
             random_state = 0
