@@ -12,7 +12,7 @@ from sklearn.model_selection import GridSearchCV
 class KNearestNeighbors():
     def __init__(self):
         # Initialisation du module
-        grid_parameters = {'n_neighbors': range(1, 20, 1)}
+        grid_parameters = {'n_neighbors': range(5, 15, 1), 'algorithm':('ball_tree', 'kd_tree', 'brute'), 'leaf_size': range(25, 35, 1)}
 
         self.knn = GridSearchCV(KNeighborsClassifier(), grid_parameters, cv=15, iid=False) 
     
