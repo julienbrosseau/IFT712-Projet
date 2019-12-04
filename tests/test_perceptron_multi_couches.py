@@ -30,6 +30,7 @@ mlp = mlp.Mlp()
 
 # Entrainement des donnees
 mlp.fit(x_train, t_train)
+mlp.crossValidation
 
 predict_train = mlp.predict(x_train)
 

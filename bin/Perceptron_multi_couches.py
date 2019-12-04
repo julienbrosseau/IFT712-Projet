@@ -10,7 +10,7 @@ class Mlp():
     def __init__(self):
         #Initialisation du module
         self.mlp = MLPClassifier(
-            hidden_layer_sizes=(25,13, ),
+            hidden_layer_sizes=(25,13,21),
             max_iter=1000
             )
 
