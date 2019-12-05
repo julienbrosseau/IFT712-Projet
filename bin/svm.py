@@ -13,7 +13,7 @@ from sklearn.model_selection import GridSearchCV
 class SVM():
     def __init__(self):
         # Initialisation du module
-        parameters = {'kernel':('linear', 'rbf'), 'C':range(8, 16 ,4)} #range en test 
+        parameters = {'kernel':('linear', 'rbf'), 'C':range(3, 20 ,3)} #range en test 
         self.svm = GridSearchCV(svm.SVC(gamma='auto'), parameters, cv=15, iid=False)
         
     def fit(self, x_train, y_train):
