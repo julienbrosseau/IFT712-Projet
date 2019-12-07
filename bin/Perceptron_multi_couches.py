@@ -5,12 +5,12 @@
 
 from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import GridSearchCV
+import numpy as np
 
 class Mlp():
     def __init__(self):
         #Initialisation du module
         self.mlp = MLPClassifier(
-            hidden_layer_sizes=(25,13,21),
             max_iter=1000
             )
 
@@ -24,20 +24,18 @@ class Mlp():
     
     def score(self, x_train, t_train):
         # Retourne le score moyen des donnees en fonction de leur classe
-       return self.mlp.score(x_train, t_train)
+        return self.mlp.score(x_train, t_train)
    
-   # def get_best_param(self):
-        # Retourne le meilleur hyperparametre
-    #    return self.mlp.best_params
-   
+    def get_best_param(self):
+         #Retourne le meilleur hyperparametre
+         return self.mlp.best_params_ 
     def crossValidation(self):
         # Retourne une cross validation
-        grid_parameters = {'hidden_layer_sizes': range(1, 20, 1)}
-        GridSearchCV(
+        grid_parameters = {'alpha': np.arange(0, 0.5, 0.01)}
+        self.mlp=GridSearchCV(
             self.mlp, 
             grid_parameters, 
             cv = 15, 
             iid = False
             )
-        return self.mlp.crossValidation
 
