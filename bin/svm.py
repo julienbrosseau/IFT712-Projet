@@ -9,11 +9,12 @@
 
 from sklearn import svm
 from sklearn.model_selection import GridSearchCV
+import numpy as np
 
 class SVM():
     def __init__(self):
         # Initialisation du module
-        parameters = {'kernel':('linear', 'rbf'), 'C':range(3, 20 ,3)} #range en test 
+        parameters = {'kernel':('linear', 'rbf'), 'C':np.arange(0.5, 1, 0.01)} 
         self.svm = GridSearchCV(svm.SVC(gamma='auto'), parameters, cv=15, iid=False)
         
     def fit(self, x_train, y_train):
