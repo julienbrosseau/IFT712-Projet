@@ -9,12 +9,17 @@
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import GridSearchCV
 
+import matplotlib.pyplot as plt
+import numpy as np
+
 class randomForest():
     def __init__(self):
         #Initialisation du module
-        grid_parameters = {'n_estimators': range(15, 20, 1), 'max_depth': range(3, 7, 1)}
+        grid_parameters = {'n_estimators': range(1, 20, 1)}
 
         self.randomForest = GridSearchCV(RandomForestClassifier(
+            # n_estimators=np.arange(1, 10, 1),
+            max_depth=2,
             random_state=0
         ), grid_parameters, cv=15, iid=False) 
 
