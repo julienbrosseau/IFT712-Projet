@@ -11,17 +11,27 @@ Lien du plan de cours [USherbrooke](http://info.usherbrooke.ca/pmjodoin/cours/if
 
 ## Méthodes de classification
 
+### AdaBoost
+Lien vers la bibliothèque sklearn [AdaBoostClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html)
+
+### K-Nearest Neighbors
+Lien vers la bibliothèque sklearn [KNeighborsClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html)
+
+### Perceptron multi couches
+Lien vers la bibliothèque sklearn [MLPClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html)
+
+### Random forest
+Lien vers la bibliothèque sklearn [RandomForest](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html
+
 ### Régression linéaire
 Lien vers la bibliothèque sklearn [LogisticRegressionCV](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegressionCV.html#sklearn.linear_model.LogisticRegressionCV)
 
 ### Ridge
 Lien vers la bibliothèque sklearn [RidgeClassifierCV](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.RidgeClassifierCV.html#sklearn.linear_model.RidgeClassifierCV)
 
-### AdaBoost
-Lien vers la bibliothèque sklearn [AdaBoostClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html)
+### SVM
+Lien vers la bibliothèque sklearn [SVM](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html)
 
-### K-Nearest Neighbors
-Lien vers la bibliothèque sklearn [KNeighborsClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html)
 
 ## Validation croisée & Recherche d'hyperparamètres
 
