@@ -1,4 +1,5 @@
 # Fichier main du projet
+
 import sys
 import numpy as np
 
@@ -33,3 +34,4 @@ if method != None:
 
     # Affichage matrice de confusion
     run.get_confusion_matrix(t_test, predict_test)
+    
