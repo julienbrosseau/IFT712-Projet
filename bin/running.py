@@ -6,8 +6,13 @@ from sklearn.metrics import confusion_matrix
 import bin.data_opening as op
 import bin.treatment as tr
 
-import bin.adaboost as adaboost
-# TODO: A COMPLETER
+import bin.models.adaboost as adaboost
+import bin.models.logistic_regression as logistic_regression
+import bin.models.nearest_neighbors as knn
+import bin.models.perceptron_multi_couches as mlp
+import bin.models.random_forest as random_forest
+import bin.models.ridge as ridge
+import bin.models.svm as svm
 
 class Running():
     
@@ -15,11 +20,11 @@ class Running():
         # Initialisation de la classe
         pass
 
-    def get_method(self, method):
+    def get_method(self, method=None):
         # Retourne la methode placee en parametre
         list_methods = ["logistic", "ridge", "adaboost", "nearestneighbors", "svm", "perceptron", "randomforest"]
 
-        if method not in list_methods:
+        if method[1] not in list_methods:
             print(
                 "\n--------------------- /!\ ---------------------\n",
                 "Veuillez entrer l'une des méthodes suivantes :\n",
@@ -29,29 +34,34 @@ class Running():
                 "'nearestneighbors' . 'k-nearest neighbors'\n",
                 "'svm' .............. 'svm'\n",
                 "'perceptron' ....... 'multi layer perceptron'\n",
-                "'randomforest' ..... 'random forest'\n"
+                "'randomforest' ..... 'random forest'\n",
                 "--------------------- /!\ ---------------------\n"
             )
             return
         else:
             print(
-                "\nVous avez entré la méthode :", method, "\n"
+                "\nVous avez entré la méthode :", method[1], "\n"
             )
-            return method
+            return method[1]
 
     def get_classifier(self, method):
         # Retourne l'initalisation du modèle
         if method == "logistic":
-            classifier = logistic.LogisticRegression()
+            classifier = logistic_regression.LogisticRegression()
         elif method == "ridge":
             classifier = ridge.Ridge()
         elif method == "adaboost":
             classifier = adaboost.AdaBoost()
         elif method == "nearestneighbors":
             classifier = knn.KNearestNeighbors()
+        elif method == "svm":
+            classifier = svm.SVM()
+        elif method == "perceptron":
+            classifier = mlp.Mlp()
+        elif method == "randomforest":
+            classifier = random_forest.RandomForest()
         else:
             raise RuntimeError()
-        # TODO: A COMPLETER
         
         return classifier
 
