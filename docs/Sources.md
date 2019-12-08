@@ -21,7 +21,7 @@ Lien vers la bibliothèque sklearn [KNeighborsClassifier](https://scikit-learn.o
 Lien vers la bibliothèque sklearn [MLPClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html)
 
 ### Random forest
-Lien vers la bibliothèque sklearn [RandomForest](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html
+Lien vers la bibliothèque sklearn [RandomForest](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html)
 
 ### Régression linéaire
 Lien vers la bibliothèque sklearn [LogisticRegressionCV](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegressionCV.html#sklearn.linear_model.LogisticRegressionCV)
@@ -30,7 +30,7 @@ Lien vers la bibliothèque sklearn [LogisticRegressionCV](https://scikit-learn.o
 Lien vers la bibliothèque sklearn [RidgeClassifierCV](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.RidgeClassifierCV.html#sklearn.linear_model.RidgeClassifierCV)
 
 ### SVM
-Lien vers la bibliothèque sklearn [SVM](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html)
+Lien vers la bibliothèque sklearn [SVC](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html)
 
 
 ## Validation croisée & Recherche d'hyperparamètres
