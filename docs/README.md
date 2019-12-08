@@ -15,5 +15,8 @@ Implémenté et testé avec Python 3.7.3
   - ridge
   - svm
 
+### Standard du projet
+Recommandations de style en Python [PEP 8](https://www.python.org/dev/peps/pep-0008/)
+
 ### Ensemble des sources du projet
 Lien vers le fichier [Sources.md](https://github.com/julienbrosseau/IFT712-Projet/blob/documentation/docs/Sources.md)
