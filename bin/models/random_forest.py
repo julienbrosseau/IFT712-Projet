@@ -15,8 +15,8 @@ class RandomForest():
         grid_parameters = {'n_estimators': range(15, 20, 1), 'max_depth': range(3, 7, 1)}
 
         self.randomForest = GridSearchCV(RandomForestClassifier(
-            random_state=0
-        ), grid_parameters, cv=15, iid=False) 
+            random_state = 0
+        ), grid_parameters, cv = 15, iid=False) 
 
     def fit(self, x_train, y_train):
         # Retourne l'entrainement du modele par rapport aux donnees
