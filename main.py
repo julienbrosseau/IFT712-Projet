@@ -1,9 +1,10 @@
 # Fichier main du projet
-
+import time
 import sys
-import numpy as np
 
 import bin.running as running
+
+start_time = time.time()
 
 run = running.Running()
 
@@ -34,4 +35,6 @@ if method != None:
 
     # Affichage matrice de confusion
     run.get_confusion_matrix(t_test, predict_test)
+    
+print("--- %s secondes ---" % (time.time() - start_time))
     
